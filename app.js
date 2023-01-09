@@ -30,3 +30,23 @@ window.addEventListener("scroll", () => {
         largeNav.classList.remove('nav-fixed')
     }
 })
+
+// skills section hide/activate
+const btns = document.querySelectorAll(".btn-heading");
+const skillsInfo = document.querySelectorAll(".info");
+const skillsArea = document.querySelector('.skills-container')
+
+skillsArea.addEventListener('click', (e) => {
+    const id = e.target.dataset.id
+    if (id) {
+        btns.forEach( (btn) => {
+            btn.classList.remove('btn-active')
+            e.target.classList.add('btn-active')
+        });
+        skillsInfo.forEach((info) => {
+            info.classList.remove('active')
+            const element = document.getElementById(id);
+            element.classList.add('active')
+        })
+    }
+})
