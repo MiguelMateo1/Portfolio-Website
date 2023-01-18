@@ -2,27 +2,39 @@ const navContainter = document.querySelector(".small-nav");
 const btnToggle = document.querySelector(".nav-toggle");
 const navBtn = document.querySelector(".nav-btn");
 const largeNav = document.querySelector(".nav-containter")
+const toTopBtn = document.querySelector('.topBtn');
 
+// button to top envent on botton of page
+window.addEventListener('scroll', () => {
 
+    if (window.pageYOffset > 500) {
+        toTopBtn.classList.add('on');
+    } else {
+        toTopBtn.classList.remove('on');
+    }
+})
+
+// Event lister, toggle nav btn show and hide btn on small screen
 btnToggle.addEventListener("click", () => {
     const visibility = navContainter.getAttribute('data-visible')
     
     if (visibility == "false") {
         navContainter.setAttribute('data-visible', true);
-        btnToggle.setAttribute('aria-expanded', true);
+        // btnToggle.setAttribute('aria-expanded', true);
         navBtn.classList.remove('fa-solid','fa-bars');
         navBtn.classList.add('fa-solid','fa-x');
     } else {
         navContainter.setAttribute('data-visible', false);
-        btnToggle.setAttribute('aria-expanded', false);
+        // btnToggle.setAttribute('aria-expanded', false);
         navBtn.classList.remove('fa-solid','fa-x');
         navBtn.classList.add('fa-solid','fa-bars');
     }
 })
 
+// on scroll show top nav bar; on larger screen
 window.addEventListener("scroll", () => {
 
-    const scrollAreal = document.documentElement.scrollHeight - window.innerHeight;
+    // const scrollArea = document.documentElement.scrollHeight - window.innerHeight;
 
     if (window.scrollY > 150) {
         largeNav.classList.add('nav-fixed')
@@ -30,6 +42,21 @@ window.addEventListener("scroll", () => {
         largeNav.classList.remove('nav-fixed')
     }
 })
+
+// projects section, event listener for back and next btn on projects
+const leftBtn = document.querySelector('.left-btn');
+const rightBtn = document.querySelector('.right-btn');
+const projectsBox = document.querySelector('.projects-img-wrap')
+
+leftBtn.addEventListener('click', () => {
+    projectsBox.scrollBy(-50, 0);
+});
+
+rightBtn.addEventListener('click', () => {
+    projectsBox.scrollBy(50, 0);
+});
+
+
 
 // skills section hide/activate
 const btns = document.querySelectorAll(".btn-heading");
@@ -50,3 +77,5 @@ skillsArea.addEventListener('click', (e) => {
         })
     }
 })
+
+

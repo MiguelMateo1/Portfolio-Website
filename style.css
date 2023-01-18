@@ -4,13 +4,14 @@
 ::before {
   box-sizing: border-box;
   margin: 0;
-  padding: 0
+  padding: 0;
 }
 /* fonts */
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600&family=Montserrat&display=swap");
 
 html {
   font-size: 100%;
+  scroll-behavior: smooth;
 } /*16px*/
 
 :root {
@@ -190,6 +191,34 @@ ul {
 
         /* ========================== NAV */
 
+/* back to top btn */
+.topBtn {
+  background-color: var(--grey-600);
+  position: fixed;
+  bottom: 16px;
+  right: 32px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+  color: var(--white);
+  transition: all .4s;
+  z-index: 10;
+  opacity: 0;
+}
+
+.topBtn i {
+  font-size: 30px;
+  color: var(--white);
+}
+
+.topBtn.on {
+  opacity: 1;
+  bottom: 32px;
+}
+
 .main-top-nav {
   /* height: 0px; */
   /* transform: translateY(50%); */
@@ -201,7 +230,6 @@ ul {
   align-items: center;
   width: 90vw;
   max-width: 1400px;
-  /* height: 3.5rem; */
   height: 0rem;
   overflow: hidden;
   margin: 0 auto;
@@ -215,7 +243,7 @@ ul {
   left: 0;  
   width: 100%;
   max-width: inherit;
-  z-index: 5;
+  z-index: 11;
   background-color: var(--backgroundColor);
   transition: var(--transition);
 }
@@ -255,8 +283,9 @@ ul {
     background-color: var(--primary-200);
     background-color: hsl(0, 0%, 100%, 0.1);
     backdrop-filter: blur(2rem);
-    z-index: 5;
+    z-index: 11;
     transform: translateX(100%);
+    transition: var(--transition);
   }
   @supports (backdrop-filter: blur(2rem)) {
     .small-nav {
@@ -268,7 +297,6 @@ ul {
     transform: translateX(0%);
   }
 
-  /* overflow-x: hidden; */
   .nav-link {
     color: black;
     font-size: 1.3rem;
@@ -503,7 +531,7 @@ background: linear-gradient(140deg, rgba(146,168,172,1) 0%, rgba(37,80,88,1) 100
   margin-bottom: 1rem;
 }
 
-/* =========================== projects */
+/* ====================================== projects */
 
 #projects {
   background-color: var(--primary-700);
@@ -520,13 +548,14 @@ background: linear-gradient(140deg, rgba(146,168,172,1) 0%, rgba(37,80,88,1) 100
 
 .projects-container {
   width: 90vw;
-  max-width: 1300px;
+  max-width: 1200px;
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 0 auto;
   padding: 3rem 0;
   overflow: hidden;
+  position: relative;
 }
 
 .projects-container p {
@@ -534,18 +563,19 @@ background: linear-gradient(140deg, rgba(146,168,172,1) 0%, rgba(37,80,88,1) 100
   padding: 1.5rem 0 1rem 0;
 }
 
-/* projects slider */
+/* projects slider container*/
 .projects-img-wrap {
   display: grid;
   grid-auto-flow: column;
   grid-auto-columns: 50%;
-
   overflow-x: auto;
+  scroll-behavior: smooth;
 }
 
 
 .project-img {
   display: grid;
+  transition: var(--transition);
   /* grid-template-rows: min-content; */
 }
 
@@ -567,13 +597,45 @@ background: linear-gradient(140deg, rgba(146,168,172,1) 0%, rgba(37,80,88,1) 100
   object-fit: cover;
 }
 
+/* back and next projects btn */
+.projects-btn {
+  position:absolute;
+  height: 50px;
+  width: 100%;
+  top: 34.8%;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgba(0, 0, 0, 0.5); 
+  z-index: 5;
+}
+
+.left-btn, .right-btn {
+  width: 300px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  padding: 0 60px;
+  cursor: pointer;
+}
+
+.left-btn {
+  justify-content: start;
+}
+
+/* bigger screen projects container layout */
 @media screen and (min-width:850px) {
   .projects-img-wrap {
-    grid-auto-columns: 34%;
+    grid-auto-columns: 33.3%;
   }
   .project-img > img{
     height: 24rem;
-    /* aspect-ratio: 9 / 12; */
+  }
+  .projects-btn {
+    top: 31%;
   }
 }
 
@@ -588,8 +650,9 @@ background: linear-gradient(140deg, rgba(146,168,172,1) 0%, rgba(37,80,88,1) 100
 
 
 .project-img:hover {
-  
+  filter:brightness(0.83)
 }
+
 
 /* ================================= skills */
 
@@ -673,6 +736,11 @@ background: linear-gradient(140deg, rgba(146,168,172,1) 0%, rgba(37,80,88,1) 100
   padding: 0.8rem 2rem;
   width: 100%;
   color: var(--primary-100);
+  box-shadow: none;
+}
+
+.info-div {
+  padding: 15px 20px;
 }
 
 .info {
