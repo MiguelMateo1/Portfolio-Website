@@ -2,9 +2,10 @@ const navContainter = document.querySelector(".small-nav");
 const btnToggle = document.querySelector(".nav-toggle");
 const navBtn = document.querySelector(".nav-btn");
 const largeNav = document.querySelector(".nav-containter")
-const toTopBtn = document.querySelector('.topBtn');
+const toTopBtn = document.querySelector(".topBtn");
+const navLinks = document.querySelectorAll(".nav-link");
 
-// button to top envent on botton of page
+// shows/hide button to top of page on botton of page
 window.addEventListener('scroll', () => {
 
     if (window.pageYOffset > 500) {
@@ -20,15 +21,22 @@ btnToggle.addEventListener("click", () => {
     
     if (visibility == "false") {
         navContainter.setAttribute('data-visible', true);
-        // btnToggle.setAttribute('aria-expanded', true);
         navBtn.classList.remove('fa-solid','fa-bars');
         navBtn.classList.add('fa-solid','fa-x');
     } else {
         navContainter.setAttribute('data-visible', false);
-        // btnToggle.setAttribute('aria-expanded', false);
         navBtn.classList.remove('fa-solid','fa-x');
         navBtn.classList.add('fa-solid','fa-bars');
     }
+})
+
+// closes nav when click on likn - on small screen
+navLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+        navContainter.setAttribute('data-visible', false);
+        navBtn.classList.remove('fa-solid','fa-x');
+        navBtn.classList.add('fa-solid','fa-bars');
+    })
 })
 
 // on scroll show top nav bar; on larger screen
