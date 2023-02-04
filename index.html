@@ -20,15 +20,14 @@
           <i class="fa-solid fa-angle-up"></i>
      </a>
 
-
         <nav class="main-top-nav" data-visible="false">
             <div class="nav-containter">
                 <h3 class="nav-name">miguel <span>mateo</span></h3>
                 <ul class="small-nav" data-visible="false">
-                    <li><a href="/" class="nav-link">home</a></li>
-                    <li><a href="/" class="nav-link">about</a></li>
-                    <li><a href="/" class="nav-link">projects</a></li>
-                    <li><a href="/" class="nav-link">home</a></li>
+                    <li><a href="#about" class="nav-link">about</a></li>
+                    <li><a href="#projects" class="nav-link">projects</a></li>
+                    <li><a href="#skills" class="nav-link">skills</a></li>
+                    <li><a href="#contact" class="nav-link">contact</a></li>
                 </ul>
             </div>
         </nav>
@@ -48,9 +47,9 @@
                 
             <div class="box b2">
                 <ul>
-                    <li><a href="/" class="header-link">my projects</a></li>
-                    <li><a href="/" class="header-link">courses</a></li>
-                    <li><a href="/" class="header-link">about me</a></li>
+                    <li><a href="#about" class="header-link">about me</a></li>
+                    <li><a href="#projects" class="header-link">my projects</a></li>
+                    <li><a href="#skills" class="header-link">skills</a></li>
                 </ul>
             </div>
 
@@ -65,10 +64,12 @@
     </main>
     <div class="line-devide"></div>
 
-
+<!-- about section -->
     <section id="about">
         <div class="about-container">
-            <img src="./images/main-img.jpg" class="img about-img" alt="">
+            <div class="about-img-container">
+                <img src="./images/main2.jpg" class="img about-img" alt="">
+            </div>
             <div class="about-text">
                 <h2>about</h2>
                 <div class="text-line"></div>
@@ -77,6 +78,7 @@
         </div>
     </section>
 
+    <!-- projects section -->
     <section id="projects">
         <div class="projects-container">
             <h2>projects</h2>
@@ -94,15 +96,6 @@
 
             <div class="projects-img-wrap snapsX">
        
-                        <!-- <div class="projects-btn">
-                            <div class="left-btn">
-                                <i class="fa-solid fa-chevron-left"></i> 
-                            </div>
-                            <div class="right-btn">
-                                <i class="fa-solid fa-chevron-right"></i>
-                            </div>
-                        </div> -->
-
                     <a href="" class="project-img">
                         <img src="https://images.pexels.com/photos/1261731/pexels-photo-1261731.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
                         <p>sidebar website</p>
@@ -128,26 +121,23 @@
                         <img src="https://images.pexels.com/photos/6234981/pexels-photo-6234981.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
                         <p>sidebar website</p>
                     </a>
-                    <!-- <div class="projects-right-btn">
-                        <i class="fa-solid fa-chevron-right"></i>
-                    </div> -->
-
             </div>
         </div>
     </section>
 
+    <!-- skills srction -->
     <section id="skills">
-        <h3>skills</h3>
+        <h2>skills</h2>
         <div class="text-line-center"></div>
         <div class="skills-container">
             <div class="skills-icons">
-                <i class="fa-brands fa-instagram icon"></i>
-                <i class="fa-brands fa-instagram icon"></i>
-                <i class="fa-brands fa-instagram icon"></i>
-                <i class="fa-brands fa-instagram icon"></i>
+                <i class="fa-brands fa-html5"></i>
+                <i class="fa-brands fa-css3-alt"></i>
+                <i class="fa-brands fa-square-js"></i>
+                <i class="fa-brands fa-react"></i>
             </div>
             <article class="skills-img">
-                <img src="https://images.pexels.com/photos/13009437/pexels-photo-13009437.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
+                <img src="https://images.pexels.com/photos/1714205/pexels-photo-1714205.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
             </article>
           
             <article class="skills-info">
@@ -177,9 +167,39 @@
         </div>
     </section>
 
+    <!-- contact section -->
     <section id="contact">
 
+        <div class="contact-container">
+            <div class="contact-details">
+                <h3>Contact Details</h3>
+                <div class="text-line"></div>
+                <p>
+                <strong>Phone:</strong> +1 (555) 555-5555<br>
+                <strong>Email:</strong> contact@example.com<br>
+                <a href="#"><i class="fa-brands fa-linkedin icon"></i></a>                        
+                <a href="#"><i class="fa-brands fa-github icon"></i></a>
+                </p>
+            </div>
+
+            <div class="contact-section">
+                <h3>Email me</h3>
+                <form action="submit" method="post">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="user_name" required>
+            
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="user_email" required>
+            
+                <label for="message">Message:</label>
+                <textarea id="message" name="user_message" required></textarea>
+            
+                <input type="submit" value="Submit">
+                </form>
+            </div>
+        </div>
     </section>
+
 
     <script type="module" src="./app.js"></script>
 </body>
