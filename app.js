@@ -30,7 +30,7 @@ btnToggle.addEventListener("click", () => {
     }
 })
 
-// closes nav when click on likn - on small screen
+// closes nav when click on link; *on small screen
 navLinks.forEach((link) => {
     link.addEventListener("click", () => {
         navContainter.setAttribute('data-visible', false);
@@ -39,7 +39,7 @@ navLinks.forEach((link) => {
     })
 })
 
-// on scroll show top nav bar; on larger screen
+// on scroll show top nav bar; *on larger screen
 window.addEventListener("scroll", () => {
 
     // const scrollArea = document.documentElement.scrollHeight - window.innerHeight;
@@ -64,8 +64,6 @@ rightBtn.addEventListener('click', () => {
     projectsBox.scrollBy(50, 0);
 });
 
-
-
 // skills section hide/activate
 const btns = document.querySelectorAll(".btn-heading");
 const skillsInfo = document.querySelectorAll(".info");
@@ -85,5 +83,3 @@ skillsArea.addEventListener('click', (e) => {
         })
     }
 })
-
-
