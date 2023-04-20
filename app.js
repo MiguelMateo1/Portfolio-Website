@@ -67,19 +67,31 @@ rightBtn.addEventListener('click', () => {
 // skills section hide/activate
 const btns = document.querySelectorAll(".btn-heading");
 const skillsInfo = document.querySelectorAll(".info");
-const skillsArea = document.querySelector('.skills-container')
+const skillsArea = document.querySelector('.skills-container');
+const infoDiv = document.querySelector('.info-div')
 
 skillsArea.addEventListener('click', (e) => {
     const id = e.target.dataset.id
+    console.log(id)
     if (id) {
         btns.forEach( (btn) => {
             btn.classList.remove('btn-active')
             e.target.classList.add('btn-active')
         });
         skillsInfo.forEach((info) => {
-            info.classList.remove('active')
+            info.classList.remove('active');
+            // infoDiv.classList.remove('view');
+            infoDiv.classList.add('disabled');
             const element = document.getElementById(id);
-            element.classList.add('active')
+            element.classList.add('active');
         })
+
+        if (id == 'cert') {
+            infoDiv.classList.add('view');
+            infoDiv.classList.remove('disabled');
+        } else {
+            infoDiv.classList.remove('view');
+            infoDiv.classList.add('disabled');
+        }
     }
 })

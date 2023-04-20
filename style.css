@@ -631,7 +631,7 @@ main {
   position:absolute;
   height: 50px;
   width: 100%;
-  top: 37.8%;
+  top: 37.6%;
   left: 0;
   right: 0;
   display: flex;
@@ -681,7 +681,7 @@ main {
 /* mobile screen btn placement */
 @media screen and (max-width:450px) {
   .projects-btn {
-    top: 41.7%;
+    top: 38.7%;
   }
 }
 
@@ -707,26 +707,6 @@ main {
   background-color: var(--primary-500);
 }
 
-/* icons */
-.skills-icons {
-  display: flex;
-  gap: 4rem;
-  font-size: 1.6rem;
-  padding-top: 2.4rem;
-  color: var(--primary-400);
-}
-
-@media screen and (min-width:700px) {
-  .skills-icons {
-    gap: 7rem;
-  }
-}
-@media screen and (min-width:1200px) {
-  .skills-icons {
-    gap: 10rem;
-  }
-}
-
 #skills h2 {
   margin: 0 auto;
   text-align: center;
@@ -736,112 +716,205 @@ main {
 
 .skills-container {
   width: 90vw;
-  max-width: 1300px;
+  max-width: 1190px;
   display: grid;
   justify-items: center;
   margin: 0 auto;
-  padding-bottom: 2.3rem;
-  gap: 1rem;
+  padding-bottom: 1.8rem;
+  padding-top: 2.5rem;
+  gap: 1.8rem;
 }
 
-.skills-img {
+/* frontend and backend box */
+.skills-box {
   display: flex;
-  place-content: center;
-}
-
-.skills-img img {
-  width: 100%;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 30px;
+  color: var(--grey-800);
+  margin: 0 auto;
   height: 20rem;
-  aspect-ratio: 16/ 9 ;
-  max-width: 580px;
-  object-fit: cover;
-  border-radius: var(--borderRadius);
+  /* width: 100%; */
+  max-width: 400px;
+  background-color:var(--grey-100);
+  box-shadow: -6px 12px 17px -2px rgba(0,0,0,0.2);
+  border-radius: 1.2rem;
+  border-left: 6px solid #bdbdbd;
+  border-top: 2px solid #d7d7d7;
 }
 
-/* mobile screen */
-@media screen and (max-width:500px) {
-  .skills-img img {
-    height: 14rem;
-  }
-} 
+.skills-box1 {
+  width: 100%;
+}
+.skills-box2 {
+  width: 100%;
+}
 
+.skills-box h5 {
+  text-align: center;
+}
+
+.skills-text {
+  display: flex;
+  justify-content:space-between;
+}
+
+.skills-text h5 {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.skills-text i {
+  color:var(--primary-200);
+  padding-right: 5px;
+  font-size: 1.1rem;
+}
+
+/* certificates.. ect box */
 .skills-info {
   display: grid;
+  width: 90vw;
+  max-width: 1010px;
   grid-template-columns: 1fr;
   grid-template-rows: min-content;
-  height: 20rem;
-  max-width: 580px;
+  height: 21.2rem;
   background-color: var(--primary-100);
-  border-radius: var(--borderRadius);
+  border-radius: 1.2rem;
 }
 
 .btn-container {
   display: grid;
-  grid-auto-flow: column;
-  width: 100%;
+  grid-template-columns: 1fr 1fr 1fr;
   background-color: var(--primary-400);
-  border-radius: var(--borderRadius);
+  border-radius: 1.2rem;
 }
 
 .btn-heading {
   background-color: var(--primary-400);
-  border-bottom-left-radius: 0%;
-  border-bottom-right-radius: 0%;
+  border-radius: 0%;
   padding: 0.8rem 0;
-  color: var(--primary-100);
+  color: rgb(255, 255, 255);
   box-shadow: none;
+}
+
+button[data-id='history'] {
+  border-top-left-radius: 1.2rem;
+}
+
+button[data-id='goals'] {
+  border-top-right-radius: 1.2rem;
 }
 
 .info-div {
   padding: 10px 15px;
+  position: relative;
   background-color: var(--primary-600);
-  border-bottom-left-radius: var(--borderRadius);
-  border-bottom-right-radius: var(--borderRadius);
+  border-bottom-left-radius: 1.2rem;
+  border-bottom-right-radius: 1.2rem;
+}
+
+.certificates {
+  margin: 0 auto;
+  text-align: center;
+  display: grid;
+  position: absolute;
+  top: 40px;
+  left: 50%;
+  transform: translate(-50%);
+  grid-template-columns: 1fr;
+  align-items: center;
+  background-color: var(--primary-100);
+  border-radius: 1rem;
+  padding: 8px;
+  width: 90%;
+  height: 230px;
+}
+
+.cert {
+  display: grid;
+  grid-template-columns: 50px 200px;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+}
+
+.info-div.view .certificates {
+  animation: slide 1s 1 ease forwards;
+}
+
+.info-div.disabled .certificates {
+  animation: slide2 1s 1 ease forwards;
+}
+
+.cert img {
+  width: 40px;
+}
+
+.cert a {
+  color: rgb(0, 0, 0);
+}
+
+.cert a:visited {
+  color: var(--grey-700);
 }
 
 .info-div h4 {
-  margin-left: 5px;
-  margin-top: 10px;
+  margin: 12px 5px;
 }
 
 .info-div p {
-  margin-left: 20px;
-}
-
-.info {
-  color: var(--primary-100);
+  margin: 0 20px;
 }
 
 /* bigger screem */
 @media screen and (min-width:750px) {
   .skills-container {
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 90px 1fr;
+    grid-template-rows: 1fr 1fr;
     justify-items: center;
-    margin: 30px auto;
+    margin: 10px auto;
   }
-
-  .skills-img {
-    place-content: center;
-    grid-column: 1/2;
-    grid-row: 2/-1;
-  }
-  
-  .skills-img img {
-    width: 100%;
-    max-width: 1080px;
-    object-fit: cover;
-  }
-
   .skills-info {
-    grid-column: 2/-1;
-    grid-row: 2/-1;
-    background-color: var(--primary-600);
-  }
-
-  .skills-icons {
+    grid-row: 2/3;
     grid-column: 1/-1;
+    background-color: var(--primary-600);
+    height: 17rem;
+    margin-top: 1.5rem;
+  }
+  .skills-box1 {
     grid-row: 1/2;
+    grid-column: 1/2;
+  }
+  .skills-box2 {
+    grid-row: 1/2s;
+    grid-column: 2/3;
+  }
+  .btn-heading {
+    font-size: 1rem;
+  }
+  .certificates {
+    width: 90%;
+    grid-template-columns: 1fr 1fr;
+    height: 210px;
+    z-index: 2;
+  }
+  .certificates::after {
+    content: "";
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    height: 8px;
+    box-shadow: 0 40px 15px rgba(58, 71, 146, 0.544);
+    background-color: transparent;
+    border-radius: 80px / 4px;
+  }
+  .info-div h4 {
+    margin: 20px 25px;
+  }
+  .info-div p {
+    margin: 0 50px;
   }
 }
 
@@ -851,16 +924,27 @@ main {
 
 /* info hidden/active */
 .info {
+  color: var(--primary-100);
   display: none;
 }
 
 .active {
-  display: block;
+  display: grid;
   background-color: var(--primary-600);
 }
 
 .fa-php {
   font-size: 1.85rem;
+}
+
+@keyframes slide {
+    0%    { left: -110%;}
+    100%  { left: 50%;}
+}
+
+@keyframes slide2 {
+  0%    { left: 50%;}
+  100%  { left: -110%;}
 }
 
 /* ==================== contact section */
