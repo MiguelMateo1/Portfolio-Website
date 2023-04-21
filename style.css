@@ -599,6 +599,7 @@ main {
   grid-auto-columns: 50%;
   overflow-x: auto;
   scroll-behavior: smooth;
+  border-radius: var(--borderRadius);
 }
 
 
@@ -651,6 +652,7 @@ main {
   padding: 0 60px;
   cursor: pointer;
   transition: var(--transition);
+  color: rgb(255, 255, 255);
 }
 
 .left-btn:hover, .right-btn:hover {
@@ -661,8 +663,13 @@ main {
   background-color: rgba(115, 196, 216, 0.7); 
 }
 
+.right-btn {
+  border-top-right-radius: var(--borderRadius);
+}
+
 .left-btn {
   justify-content: start;
+  border-top-left-radius: var(--borderRadius);
 }
 
 /* bigger screen projects container layout */
@@ -847,15 +854,27 @@ button[data-id='goals'] {
 }
 
 .cert img {
-  width: 40px;
+  width: 25px;
+  border-radius: 2px;
+  transition: all .3s ease-in-out;
+}
+
+.udemy {
+  transform: scale(1.8);
 }
 
 .cert a {
   color: rgb(0, 0, 0);
+  letter-spacing: .5px;
+  text-align: start;
+}
+
+.cert:hover img {
+  margin-left: 2px;
 }
 
 .cert a:visited {
-  color: var(--grey-700);
+  color: rgb(0, 0, 0);
 }
 
 .info-div h4 {
@@ -898,17 +917,8 @@ button[data-id='goals'] {
     height: 210px;
     z-index: 2;
   }
-  .certificates::after {
-    content: "";
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 90%;
-    height: 8px;
-    box-shadow: 0 40px 15px rgba(58, 71, 146, 0.544);
-    background-color: transparent;
-    border-radius: 80px / 4px;
+  .cert img {
+    width: 35px;
   }
   .info-div h4 {
     margin: 20px 25px;
@@ -1044,5 +1054,53 @@ input[type="submit"] {
   .contact-details h3 {
     font-size: 1.7rem;
   }
-  
+}
+
+footer {
+  height: 100px;
+  background-color: var(--grey-900);
+}
+
+footer div{
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+footer img{
+  width: 200px;
+}
+/***************************************** scrollbar */
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary-200) #DFE9EB;
+}
+
+/* Chrome, Edge and Safari */
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 12px;
+}
+*::-webkit-scrollbar-track {
+  border-radius: 5px;
+  background-color: var(--grey-100);
+}
+
+*::-webkit-scrollbar-track:hover {
+  background-color: var(--grey-200);
+}
+
+*::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background-color: var(--primary-200);
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: #568285;
+}
+
+*::-webkit-scrollbar-thumb:active {
+  background-color:var(--grey-800);
 }
