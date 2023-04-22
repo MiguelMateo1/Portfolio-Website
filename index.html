@@ -10,8 +10,9 @@
     <!-- font awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-<body>
 
+<body>
+<section id="main">
     <!-- small screen toggle btn -->
     <button class="nav-toggle" aria-expanded="false"><i class="nav-btn fa-solid fa-bars"></i></button>
     <!-- back to top btn on button of page -->
@@ -96,31 +97,30 @@
 
             <div class="projects-img-wrap snapsX">
        
-                    <a href="" class="project-img">
+                    <aside class="project-img" project-id="ultra-Plan">
                         <img src="https://images.pexels.com/photos/1261731/pexels-photo-1261731.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
                         <p>sidebar website</p>
-                    </a>
+                    </aside>
 
-                    <a href="" class="project-img">
+                    <aside class="project-img" project-id="card-matching">
                         <img src="https://images.pexels.com/photos/14960582/pexels-photo-14960582.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
                         <p>sidebar website</p>
-                    </a>
+                    </aside>
 
-                    <a href="" class="project-img">
+                    <aside class="project-img">
                         <img src="https://images.pexels.com/photos/14950606/pexels-photo-14950606.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
                         <p>sidebar website</p>
-                    </a>
+                    </aside>
 
-
-                    <a href="" class="project-img">
+                    <aside class="project-img">
                         <img src="https://images.pexels.com/photos/13009437/pexels-photo-13009437.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
                         <p>sidebar website</p>
-                    </a>
+                    </aside>
 
-                    <a href="" class="project-img">
+                    <aside  class="project-img">
                         <img src="https://images.pexels.com/photos/6234981/pexels-photo-6234981.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
                         <p>sidebar website</p>
-                    </a>
+                    </aside>
             </div>
         </div>
     </section>
@@ -226,7 +226,7 @@
             </div>
 
             <div class="contact-section">
-                <h3>Email me</h3>
+                <h4>Email me</h4>
                 <form action="submit" method="post">
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="user_name" required>
@@ -242,13 +242,32 @@
             </div>
         </div>
     </section>
+
     <footer>
             <div>
                 <span>&copy</span>
                 <img src="/images/footer-name.png" alt="name">
             </div>
     </footer>
+</section>
 
+    <!-- projects modal -->
+    <section id="modal">
+        <aside class="project-modal">
+            <button class="modal-toggle"><i class="fa-solid fa-x"></i></button>
+            <div class="modal-img">
+                <img src="images/project/ultra.png" alt="">
+            </div>
+            <div class="modal-link">
+                <a href="/" target="_blank">Live site<i class="fa-solid fa-earth-americas"></i></a>
+                <a href="https://github.com/MiguelMateo1/Ultra-plan" target="_blank">View code<i class="fa-brands fa-github icon"></i></a>
+            </div>
+            <div class="modal-info">
+                <h5>Ultra Plan</h5>
+            </div>
+        </aside>
+    </section>
     <script type="module" src="./app.js"></script>
+
 </body>
 </html>

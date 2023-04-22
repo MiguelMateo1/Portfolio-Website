@@ -4,6 +4,7 @@ const navBtn = document.querySelector(".nav-btn");
 const largeNav = document.querySelector(".nav-containter")
 const toTopBtn = document.querySelector(".topBtn");
 const navLinks = document.querySelectorAll(".nav-link");
+const smallNav = document.querySelector(".small-nav");
 
 // shows/hide button to top of page on botton of page
 window.addEventListener('scroll', () => {
@@ -31,12 +32,12 @@ btnToggle.addEventListener("click", () => {
 })
 
 // closes nav when click on link; *on small screen
-navLinks.forEach((link) => {
-    link.addEventListener("click", () => {
+smallNav.addEventListener("click", (e) => {
+    if (e.target.classList.contains('nav-link')) {
         navContainter.setAttribute('data-visible', false);
         navBtn.classList.remove('fa-solid','fa-x');
         navBtn.classList.add('fa-solid','fa-bars');
-    })
+    }
 })
 
 // on scroll show top nav bar; *on larger screen
@@ -72,7 +73,6 @@ const infoDiv = document.querySelector('.info-div')
 
 skillsArea.addEventListener('click', (e) => {
     const id = e.target.dataset.id
-    console.log(id)
     if (id) {
         btns.forEach( (btn) => {
             btn.classList.remove('btn-active')
@@ -95,3 +95,70 @@ skillsArea.addEventListener('click', (e) => {
         }
     }
 })
+
+
+// project modal pop up dispaly section
+const modal = document.getElementById('modal');
+const main = document.getElementById('main');
+const modalBtn = document.querySelector('.modal-toggle');
+const projectModal = document.querySelector('.project-modal');
+
+// toggle class active class list
+function toggle () {
+    modal.classList.toggle('active');
+    main.classList.toggle('active');
+    projectModal.classList.toggle('active');
+};
+// close modal
+modalBtn.addEventListener('click', (e) => {
+    toggle();
+});
+
+// holds projects data to later dipaly when click on a project
+const projects = [
+    {
+        name: 'ultra-Plan',
+        url: '/',
+        gitHub: 'https://github.com/MiguelMateo1/Ultra-plan',
+        img: 'images/project/ultra.png',
+    }, {
+        name: 'card-matching',
+        url: '/',
+        gitHub: 'https://github.com/MiguelMateo1/Ultra-plan',
+        img: 'images/project/ultra.png',
+    }
+]
+// gets name of the clicked project
+projectsBox.addEventListener('click', (e) => {
+    const selectedProject = e.target.parentElement.getAttribute('project-id');
+    getProject(selectedProject)
+})
+
+function getProject (project) {
+    for (let i = 0; i <= projects.length; i++){
+        if (projects[i].name == project){
+            displayProject(i)
+            return 
+        }
+    }
+}
+// displays selected project modal
+function displayProject (p) {
+    toggle()
+    const {name,url,gitHub,img} = projects[p]
+    
+    const display = modal.appendChild = `<aside class="project-modal active">
+    <button class="modal-toggle"><i class="fa-solid fa-x"></i></button>
+    <div class="modal-img">
+        <img src="images/project/ultra.png" alt="">
+    </div>
+    <div class="modal-link">
+        <a href="/" target="_blank">Live site<i class="fa-solid fa-earth-americas"></i></a>
+        <a href="https://github.com/MiguelMateo1/Ultra-plan" target="_blank">View code<i class="fa-brands fa-github icon"></i></a>
+    </div>
+    <div class="modal-info">
+        <h5>${name}</h5>
+    </div>
+    </aside>`
+    return display;
+}
