@@ -100,7 +100,7 @@ skillsArea.addEventListener('click', (e) => {
 // project modal pop up dispaly section
 const modal = document.getElementById('modal');
 const main = document.getElementById('main');
-const modalBtn = document.querySelector('.modal-toggle');
+const modalBtn = document.querySelector('.modal-x');
 const projectModal = document.querySelector('.project-modal');
 
 // toggle class active class list
@@ -117,17 +117,23 @@ modalBtn.addEventListener('click', (e) => {
 // holds projects data to later dipaly when click on a project
 const projects = [
     {
-        name: 'ultra-Plan',
-        url: '/',
+        name: 'online store',
+        url: 'https://store-app-miguel.netlify.app/',
+        gitHub: 'https://github.com/MiguelMateo1/Store-app',
+        img: 'images/project/shoe.png',
+    }, {
+        name: 'ultra plan',
+        url: 'https://ultra-plan.netlify.app/',
         gitHub: 'https://github.com/MiguelMateo1/Ultra-plan',
         img: 'images/project/ultra.png',
     }, {
-        name: 'card-matching',
-        url: '/',
-        gitHub: 'https://github.com/MiguelMateo1/Ultra-plan',
-        img: 'images/project/ultra.png',
+        name: 'card matching',
+        url: 'https://card-match-miguel.netlify.app/',
+        gitHub: 'https://github.com/MiguelMateo1/Card-match',
+        img: 'images/project/card.png',
     }
 ]
+
 // gets name of the clicked project
 projectsBox.addEventListener('click', (e) => {
     const selectedProject = e.target.parentElement.getAttribute('project-id');
@@ -147,18 +153,16 @@ function displayProject (p) {
     toggle()
     const {name,url,gitHub,img} = projects[p]
     
-    const display = modal.appendChild = `<aside class="project-modal active">
-    <button class="modal-toggle"><i class="fa-solid fa-x"></i></button>
+    const display = projectModal.innerHTML = `
     <div class="modal-img">
-        <img src="images/project/ultra.png" alt="">
+        <img src=${img} alt=${name}>
     </div>
     <div class="modal-link">
-        <a href="/" target="_blank">Live site<i class="fa-solid fa-earth-americas"></i></a>
-        <a href="https://github.com/MiguelMateo1/Ultra-plan" target="_blank">View code<i class="fa-brands fa-github icon"></i></a>
+        <a href="${url}" target="_blank">Live site<i class="fa-solid fa-earth-americas"></i></a>
+        <a href=${gitHub} target="_blank">View code<i class="fa-brands fa-github icon"></i></a>
     </div>
     <div class="modal-info">
         <h5>${name}</h5>
-    </div>
-    </aside>`
+    </div>`
     return display;
 }
